@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui" {
+   themes:
+      light --default,
+      dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Colorful Light Theme */
+@plugin "daisyui/theme" {
+   name: "light";
+   default: true;
+   color-scheme: light;
+
+   --color-base-100: #ffffff;
+   --color-base-200: #ffedd5;
+   --color-base-300: #fed7aa;
+   --color-base-content: #431407;
+
+   --color-primary: #9333ea;
+   --color-primary-content: #ffffff;
+
+   --color-secondary: #ec4899;
+   --color-secondary-content: #ffffff;
+
+   --color-accent: #06b6d4;
+   --color-accent-content: #083344;
+
+   --color-neutral: #312e81;
+   --color-neutral-content: #ffffff;
+
+   --color-info: #0ea5e9;
+   --color-info-content: #ffffff;
+
+   --color-success: #16a34a;
+   --color-success-content: #ffffff;
+
+   --color-warning: #f59e0b;
+   --color-warning-content: #422006;
+
+   --color-error: #ef4444;
+   --color-error-content: #ffffff;
+
+   --color-button-special: #7c3aed;
+   --color-button-special-content: #ffffff;
+
+   --color-selected: #2563eb;
+   --color-selected-content: #ffffff;
+
+   --color-border-custom: #c084fc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Colorful Dark Theme */
+@plugin "daisyui/theme" {
+   name: "dark";
+   color-scheme: dark;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+   --color-base-100: #1f1c1c;
+   --color-base-200: #24183d;
+   --color-base-300: #382454;
+   --color-base-content: #f5eaff;
+
+   --color-primary: #c084fc;
+   --color-primary-content: #2e1065;
+
+   --color-secondary: #f472b6;
+   --color-secondary-content: #500724;
+
+   --color-accent: #22d3ee;
+   --color-accent-content: #083344;
+
+   --color-neutral: #312e81;
+   --color-neutral-content: #e0e7ff;
+
+   --color-info: #38bdf8;
+   --color-info-content: #082f49;
+
+   --color-success: #4ade80;
+   --color-success-content: #052e16;
+
+   --color-warning: #facc15;
+   --color-warning-content: #422006;
+
+   --color-error: #fb7185;
+   --color-error-content: #4c0519;
+
+   --color-button-special: #f472b6;
+   --color-button-special-content: #500724;
+
+   --color-selected: #6d5dfc;
+   --color-selected-content: #ffffff;
+
+   --color-border-custom: #ffffff;
 }
