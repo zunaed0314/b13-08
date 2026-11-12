@@ -69,7 +69,7 @@ const Navbar = async () => {
                      {linkPages}
                   </ul>
                </div>
-               <div>
+               <div className="">
                   <SunCartLogo></SunCartLogo>
                </div>
             </div>
@@ -77,7 +77,7 @@ const Navbar = async () => {
                <ul className="menu menu-horizontal flex gap-5 px-1">{linkPages}</ul>
             </div>
             <div className="navbar-end flex gap-4">
-               <ul className="flex gap-10">
+               <ul className="flex gap-1 md:gap-6 lg:gap-10">
                   <li className="flex items-center gap-2">
                      <ThemeSwitch />
                   </li>

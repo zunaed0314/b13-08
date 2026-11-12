@@ -30,13 +30,18 @@ export function ThemeSwitch() {
 
    return (
       <div className="mr-4 flex items-center gap-2">
-         <span>{resolvedTheme === "dark" ? <FaMoon className="size-5" /> : <MdLightMode className="size-6" />}</span>
-         <input
+         <button
+            className="btn"
+            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+         >
+            {resolvedTheme === "dark" ? <FaMoon className="size-5" /> : <MdLightMode className="size-6" />}
+         </button>
+         {/* <input
             type="checkbox"
             className="toggle transition-all duration-300"
             checked={resolvedTheme === "dark"}
             onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-         />
+         /> */}
       </div>
    );
 }
