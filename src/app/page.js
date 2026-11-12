@@ -4,15 +4,46 @@ import "animate.css";
 import Image from "next/image";
 import ProductCarousel from "@/components/ProductCarousel";
 import Link from "next/link";
+import Marquee from "react-fast-marquee";
+import PopularProducts from "@/components/PopularProducts";
+import ProductCard from "@/components/ProductCard";
 
 export default async function Home() {
    const res = await fetch("https://sun-cart-server-c57l.onrender.com/products");
    const products = await res.json();
 
+   // Aggregate ratings per brand
+   const brandStats = new Map();
+
+   for (const p of products) {
+      if (!p.brand || p.brand.trim() === "" || p.rating == null) continue;
+
+      const key = p.brand.trim().toLowerCase();
+      const entry = brandStats.get(key) ?? {
+         brand: p.brand.trim(),
+         total: 0,
+         count: 0,
+      };
+
+      entry.total += Number(p.rating);
+      entry.count += 1;
+      brandStats.set(key, entry);
+   }
+
+   // Top 3 brands by average rating
+   const topBrands = [...brandStats.values()]
+      .map((e) => ({
+         brand: e.brand,
+         avgRating: e.total / e.count,
+         count: e.count,
+      }))
+      .sort((a, b) => b.avgRating - a.avgRating)
+      .slice(0, 4);
+
    return (
       <div className="bg-base-100 text-base-content">
          {/* GRID START */}
-         <div className="custom-hero bg-hero grid min-h-screen w-full grid-cols-2 items-center justify-center rounded-xl p-5">
+         <div className="custom-hero bg-hero mb-10 grid min-h-screen w-full grid-cols-2 items-center justify-center rounded-xl p-5">
             {/* 1st COLUMN */}
             <div className="border-base-content-100 space-y-3 border-r p-8">
                <div className="bg-warning flex w-fit items-center justify-center gap-1 rounded-2xl px-4 py-1">
@@ -29,13 +60,75 @@ export default async function Home() {
                   <p className="text-hero-content1 text-3xl font-semibold">Sunglasses, summer outfits, skincare</p>
                   <p className="text-hero-content1 text-3xl font-semibold">and beach accessories</p>
                </div>
-               <Link href='/products'>
+               <Link href="/products">
                   <button className="btn btn-xl bg-warning text-warning-content animate__animated animate__bounce rounded-3xl">Shop now</button>
                </Link>
             </div>
             {/* 2nd COLUMN */}
             <div className="flex items-center justify-center">
                <ProductCarousel products={products.slice(0, 6)} />
+            </div>
+         </div>
+         {/* Hero ends here */}
+         {/* POPULAR PRODUCTS */}
+         <div>
+            <div className="container mx-auto mb-10 space-y-7">
+               <h1 className="text-base-content text-6xl font-bold">Popular Products</h1>
+               <hr />
+               <div className="">
+                  <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                     {products.slice(0, 3).map((product) => (
+                        <ProductCard
+                           key={product.id}
+                           product={product}
+                        ></ProductCard>
+                     ))}
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         {/* SUMMER CARE TIPS */}
+         <div className="container mx-auto space-y-5">
+            <h1 className="text-6xl font-bold">Summer Care Tips</h1>
+            <hr />
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+               <div className="bg-base-300 hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
+                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
+               </div>
+               <div className="bg-base-300 hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
+                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
+               </div>
+               <div className="bg-base-300 hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
+                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
+               </div>
+               <div className="bg-base-300 hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
+                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
+               </div>
+            </div>
+         </div>
+         {/* Top brands */}
+         <div className="container mx-auto space-y-5 mt-10">
+            {/* <div
+                     key={product.id}
+                     className="flex items-center justify-center p-8"
+                  ></div> */}
+            <h1 className="text-6xl font-bold">Top Brands</h1>
+            <hr />
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+               {topBrands.map((b) => (
+                  <div
+                     key={b.brand.toLowerCase()}
+                     className="border-warning bg-base-300 flex flex-col items-center justify-center gap-2 rounded-xl border-2 p-8"
+                  >
+                     <p className=" text-3xl font-semibold">{b.brand}</p>
+                     <p className=" text-3xl font-semibold opacity-70">★ {b.avgRating.toFixed(1)}</p>
+                  </div>
+               ))}
             </div>
          </div>
       </div>

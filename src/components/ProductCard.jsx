@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
             </div>
 
             <Link href={`/products/${product.id}`}>
-               <buttons className="btn flex flex-col items-end">Show details</buttons>
+               <button className="btn flex flex-col items-end">Show details</button>
             </Link>
          </div>
       </div>
