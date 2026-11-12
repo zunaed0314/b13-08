@@ -1,0 +1,114 @@
+{
+   "Products": [
+      {
+         "id": 1,
+         "name": "UV Protection Sunglasses",
+         "brand": "SunShade",
+         "price": 15,
+         "rating": 4.7,
+         "stock": 10,
+         "description": "Stylish UV protection sunglasses perfect for summer outings.",
+         "image": "https://i.postimg.cc/example1.png",
+         "category": "Accessories"
+      },
+      {
+         "id": 2,
+         "name": "Classic Leather Wallet",
+         "brand": "UrbanCarry",
+         "price": 25,
+         "rating": 4.5,
+         "stock": 18,
+         "description": "Premium leather wallet with multiple card slots and a slim design.",
+         "image": "https://i.postimg.cc/example2.png",
+         "category": "Accessories"
+      },
+      {
+         "id": 3,
+         "name": "Wireless Bluetooth Headphones",
+         "brand": "SoundMax",
+         "price": 55,
+         "rating": 4.8,
+         "stock": 12,
+         "description": "Comfortable wireless headphones with immersive sound and long battery life.",
+         "image": "https://i.postimg.cc/example3.png",
+         "category": "Electronics"
+      },
+      {
+         "id": 4,
+         "name": "Smart Fitness Watch",
+         "brand": "FitPulse",
+         "price": 79,
+         "rating": 4.6,
+         "stock": 8,
+         "description": "Track your daily activity, heart rate, steps, and sleep with this smart watch.",
+         "image": "https://i.postimg.cc/example4.png",
+         "category": "Electronics"
+      },
+      {
+         "id": 5,
+         "name": "Casual Cotton T-Shirt",
+         "brand": "StyleHub",
+         "price": 20,
+         "rating": 4.4,
+         "stock": 30,
+         "description": "Soft and breathable cotton T-shirt suitable for everyday wear.",
+         "image": "https://i.postimg.cc/example5.png",
+         "category": "Clothing"
+      },
+      {
+         "id": 6,
+         "name": "Running Sports Shoes",
+         "brand": "ActiveStep",
+         "price": 65,
+         "rating": 4.9,
+         "stock": 15,
+         "description": "Lightweight running shoes designed for comfort, flexibility, and performance.",
+         "image": "https://i.postimg.cc/example6.png",
+         "category": "Footwear"
+      },
+      {
+         "id": 7,
+         "name": "Stainless Steel Water Bottle",
+         "brand": "HydroLife",
+         "price": 18,
+         "rating": 4.6,
+         "stock": 25,
+         "description": "Reusable insulated water bottle that keeps drinks cold or hot for hours.",
+         "image": "https://i.postimg.cc/example7.png",
+         "category": "Lifestyle"
+      },
+      {
+         "id": 8,
+         "name": "Mechanical Gaming Keyboard",
+         "brand": "KeyForce",
+         "price": 89,
+         "rating": 4.8,
+         "stock": 7,
+         "description": "RGB mechanical keyboard with responsive switches for gaming and productivity.",
+         "image": "https://i.postimg.cc/example8.png",
+         "category": "Electronics"
+      },
+      {
+         "id": 9,
+         "name": "Minimalist Backpack",
+         "brand": "TravelMate",
+         "price": 42,
+         "rating": 4.5,
+         "stock": 14,
+         "description": "Modern everyday backpack with spacious compartments and a laptop sleeve.",
+         "image": "https://i.postimg.cc/example9.png",
+         "category": "Bags"
+      },
+      {
+         "id": 10,
+         "name": "Ceramic Coffee Mug",
+         "brand": "BrewCraft",
+         "price": 12,
+         "rating": 4.3,
+         "stock": 40,
+         "description": "Elegant ceramic coffee mug perfect for your morning coffee or evening tea.",
+         "image": "https://i.postimg.cc/example10.png",
+         "category": "Home & Kitchen"
+      }
+   ]
+}

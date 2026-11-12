@@ -96,7 +96,7 @@ const RegisterPage = () => {
                   </div>
                   {errors.password && <p className="text-red-500">{errors.password.message}</p>}
                </fieldset>{" "}
-               <button className="btn mt-4 min-w-[10vw] bg-state-300">Register</button>
+               <button className="btn mt-4 min-w-[10vw] bg-base-100">Register</button>
                <p className="">
                   Already have an account?{" "}
                   <Link
