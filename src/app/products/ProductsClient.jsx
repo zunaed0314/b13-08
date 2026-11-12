@@ -1,6 +1,7 @@
 "use client";
 
 import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -115,7 +116,12 @@ const ProductsClient = ({ products }) => {
          <div className="grid grid-cols-1 gap-4 p-5 md:grid-cols-2 lg:grid-cols-4">
             {filteredProducts.map((product) => (
                <div key={product.id}>
-                  <ProductCard product={product}></ProductCard>
+                  <Link
+                     href={`/products/${product.id}`}
+                     key={product.id}
+                  >
+                     <ProductCard product={product}></ProductCard>
+                  </Link>
                </div>
             ))}
          </div>
