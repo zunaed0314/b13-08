@@ -6,7 +6,6 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import "animate.css";
 
-
 const ProductsClient = ({ products }) => {
    const searchParams = useSearchParams();
    const router = useRouter();
@@ -52,10 +51,9 @@ const ProductsClient = ({ products }) => {
       return matchesSearch && matchesCategory;
    });
 
-   return ( 
+   // component shuru
+   return (
       <div className="container mx-auto mt-25 flex flex-col items-center justify-center">
-         <h1 className="animate__animated animate__bounce">An animated element</h1>
-
          <div className="flex w-full flex-col items-center gap-5 px-5 sm:flex-row sm:justify-start">
             {/* Search */}
             <form

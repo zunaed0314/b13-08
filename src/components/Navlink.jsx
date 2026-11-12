@@ -11,7 +11,7 @@ const Navlink = ({ href, children }) => {
       <Link
          href={href}
          className={`btn border [border-color:var(--color-border-custom)] ${
-            isActive ? "bg-selected text-selected-content" : "bg-base-100 text-base-content"
+            isActive ? "bg-selected text-selected-content" : "bg-base-200 text-base-content"
          }`}
       >
          {children}

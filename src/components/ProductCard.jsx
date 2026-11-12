@@ -4,7 +4,7 @@ import React from "react";
 
 const ProductCard = ({ product }) => {
    return (
-      <div className="card border-base-300 bg-base-100 hover:border-primary flex h-full flex-col overflow-hidden rounded-xl border p-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className="card animate__animated animate__bounce border-base-300 bg-base-100 hover:border-primary flex h-full flex-col overflow-hidden rounded-xl border p-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
          {/* Product Image */}
          <div className="bg-base-200 flex h-48 w-full items-center justify-center rounded-lg p-3">
             <Image
