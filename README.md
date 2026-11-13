@@ -4,6 +4,10 @@ SunCart is a modern, responsive e-commerce web application built with **Next.js*
 
 The project focuses on creating a clean interface, responsive layouts, and a smooth user experience across desktop and mobile devices.
 
+## 🌐 Live Demo
+
+**[Visit SunCart](https://b13-08.vercel.app/)**
+
 ## ✨ Features
 
 ### 🛍️ Product Experience
@@ -94,8 +98,6 @@ src/
 
 ## ⚙️ Installation & Setup
 
-Follow these steps to run SunCart locally.
-
 ### 1. Clone the repository
 
 ```bash
@@ -118,8 +120,6 @@ npm install
 
 Create a `.env` file in the project root.
 
-Add the following environment variables:
-
 ```env
 AUTH_DB_URI=your_mongodb_connection_string
 
@@ -133,15 +133,15 @@ Replace the placeholder values with your actual credentials.
 
 ### 5. Configure Google OAuth
 
-To enable Google authentication, configure a Google OAuth 2.0 Web Application client in the Google Cloud Console.
+Create a Google OAuth 2.0 Web Application client in the Google Cloud Console.
 
-Add the following authorized redirect URI for local development:
+Add this authorized redirect URI for local development:
 
 ```text
 http://localhost:3000/api/auth/callback/google
 ```
 
-For production, add your deployed domain's corresponding callback URL.
+For production, configure the corresponding callback URL for your deployed domain.
 
 ### 6. Start the development server
 
@@ -153,13 +153,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🚀 Production Build
 
-To generate an optimized production build:
+Generate an optimized production build:
 
 ```bash
 npm run build
 ```
 
-To run the production build locally:
+Run the production build locally:
 
 ```bash
 npm start
@@ -167,7 +167,7 @@ npm start
 
 ## 🌐 Deployment
 
-The application is deployed using **Vercel**.
+SunCart is deployed using **Vercel**.
 
 To deploy updates:
 
@@ -176,14 +176,14 @@ To deploy updates:
 3. A new production deployment is triggered.
 4. Check the deployment status and build logs in the Vercel dashboard.
 
-Make sure all required environment variables are configured in:
+Configure all required environment variables under:
 
 **Vercel → Project Settings → Environment Variables**
 
 ## 🔒 Security Notes
 
 - Authentication is handled through Better Auth.
-- User authentication data is stored in MongoDB.
+- Authentication data is stored in MongoDB.
 - Protected pages are guarded against unauthenticated access.
 - OAuth credentials and database connection strings are stored in environment variables.
 - Client-side components use the Better Auth client rather than importing server-only authentication code.
