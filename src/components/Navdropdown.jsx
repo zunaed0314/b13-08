@@ -3,14 +3,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-/**
- * DaisyUI dropdown built on <details>/<summary>.
- * Works reliably on touch devices (no focus tricks) and closes itself when:
- *  - a link or button inside it is tapped (unless inside [data-keep-open])
- *  - the route changes
- *  - the user taps outside of it
- *  - Escape is pressed
- */
+
 const NavDropdown = ({ label, trigger, triggerClassName = "", menuClassName = "", align = "start", children }) => {
    const ref = useRef(null);
    const pathname = usePathname();

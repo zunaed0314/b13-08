@@ -205,7 +205,6 @@ const ProfilePage = () => {
             </div>
          )}
 
-         {/* Kept outside the edit <form> so forms aren't nested */}
          <dialog
             ref={confirmRef}
             className="modal modal-bottom sm:modal-middle"
