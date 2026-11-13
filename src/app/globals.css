@@ -19,89 +19,91 @@
    --color-border-custom: var(--border-custom);
 }
 
-/* Colorful Light Theme */
+/* Summer Light Theme: cream sand pages, sky-blue hero, sun-orange accents */
 @plugin "daisyui/theme" {
    name: "light";
    default: true;
    color-scheme: light;
 
-   --color-base-100: #ffffff;
-   --color-base-200: #ffedd5;
-   --color-base-300: #fed7aa;
-   --color-base-content: #431407;
+   --color-base-100: #fffbf2; /* page: warm cream */
+   --color-base-200: #fff1d6; /* product image area: light sand */
+   --color-base-300: #ffe8bf; /* product cards: sand */
+   --color-base-content: #1a0d03; /* warm near-black brown */
 
-   /* 👇 ADD YOUR CUSTOM LIGHT COLORS HERE */
-   --hero-bg: #ffd7bd;
-   --hero-content1: #2b2b2a;
-   --hero-content2: #000000;
-   --button-special: #7c3aed;
+   /* Custom light colors */
+   --hero-bg: #a6ddf2; /* navbar, hero, tips, brands: summer sky */
+   --hero-content1: #0b3a52; /* deep ocean text */
+   --hero-content2: #04202f;
+   --button-special: #be185d; /* raspberry */
    --button-special-content: #ffffff;
-   --selected: #2563eb;
+   --selected: #0e7490; /* active nav link: deep teal */
    --selected-content: #ffffff;
-   --color-primary-content: #ffffff;
-   --color-border-custom: #0a0a0a;
+   --border-custom: #0b3a52;
 
-   --color-secondary: #ec4899;
+   --color-primary: #b23509; /* burnt orange: prices, hover borders */
+   --color-primary-content: #ffffff;
+
+   --color-secondary: #0e7490;
    --color-secondary-content: #ffffff;
 
-   --color-accent: #06b6d4;
-   --color-accent-content: #083344;
+   --color-accent: #ff8a65; /* coral */
+   --color-accent-content: #3b0d04;
 
-   --color-neutral: #312e81;
+   --color-neutral: #0f3d56;
    --color-neutral-content: #ffffff;
 
-   --color-info: #0ea5e9;
+   --color-info: #0369a1;
    --color-info-content: #ffffff;
 
-   --color-success: #16a34a;
+   --color-success: #166534;
    --color-success-content: #ffffff;
 
-   --color-warning: #f59e0b;
-   --color-warning-content: #422006;
+   --color-warning: #f97316; /* Hot deals chip and Shop now button */
+   --color-warning-content: #2b1002;
 
-   --color-error: #ef4444;
+   --color-error: #b91c1c;
    --color-error-content: #ffffff;
 }
 
-/* Colorful Dark Theme */
+/* Summer Dark Theme: deep ocean night with sun-orange accents */
 @plugin "daisyui/theme" {
    name: "dark";
    color-scheme: dark;
 
-   --color-base-100: #1f1c1c;
-   --color-base-200: #24183d;
-   --color-base-300: #382454;
-   --color-base-content: #f5eaff;
+   --color-base-100: #0b1b2b; /* page: midnight navy */
+   --color-base-200: #10283d;
+   --color-base-300: #17344f; /* product cards */
+   --color-base-content: #eaf6ff;
 
-   /* 👇 ADD YOUR CUSTOM DARK COLORS HERE */
-   --hero-bg: #2a2438; /* deep plum — matches your dark base-200/300 tones */
-   --hero-content1: #c9c4d4; /* soft light-grey text (inverse of #2b2b2a) */
-   --hero-content2: #ffffff; /* white heading text (inverse of #000000) */
-   --button-special: #f472b6; /* pink — matches your existing dark button-special */
-   --button-special-content: #500724; /* dark rose text on pink */
-   --selected: #6d5dfc; /* brighter indigo so it pops on dark base */
-   --selected-content: #ffffff; /* white text on selected */
-   --border-custom: #c084fc; /* keep the same purple — it already works on dark */
+   /* Custom dark colors */
+   --hero-bg: #12405e; /* deep ocean */
+   --hero-content1: #cde7f5;
+   --hero-content2: #ffffff;
+   --button-special: #fdba74;
+   --button-special-content: #431407;
+   --selected: #38bdf8; /* active nav link: bright sky */
+   --selected-content: #04263a;
+   --border-custom: #7dd3fc;
 
-   --color-primary: #c084fc;
-   --color-primary-content: #2e1065;
+   --color-primary: #fb923c; /* sun orange */
+   --color-primary-content: #431407;
 
-   --color-secondary: #f472b6;
-   --color-secondary-content: #500724;
+   --color-secondary: #38bdf8;
+   --color-secondary-content: #082f49;
 
-   --color-accent: #22d3ee;
-   --color-accent-content: #083344;
+   --color-accent: #f472b6;
+   --color-accent-content: #500724;
 
-   --color-neutral: #312e81;
-   --color-neutral-content: #e0e7ff;
+   --color-neutral: #1e3a5f;
+   --color-neutral-content: #e0f2fe;
 
-   --color-info: #38bdf8;
+   --color-info: #7dd3fc;
    --color-info-content: #082f49;
 
    --color-success: #4ade80;
    --color-success-content: #052e16;
 
-   --color-warning: #facc15;
+   --color-warning: #fbbf24;
    --color-warning-content: #422006;
 
    --color-error: #fb7185;

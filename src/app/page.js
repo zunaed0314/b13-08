@@ -8,6 +8,24 @@ import Marquee from "react-fast-marquee";
 import PopularProducts from "@/components/PopularProducts";
 import ProductCard from "@/components/ProductCard";
 
+const tips = [
+   {
+      title: "Stay hydrated",
+      text: "Drink water through the day, especially when you are outdoors.",
+      accent: "border-t-secondary",
+   },
+   {
+      title: "Protect your skin",
+      text: "Apply sunscreen before going out and reapply during long days in the sun.",
+      accent: "border-t-primary",
+   },
+   {
+      title: "Keep cool",
+      text: "Wear light, breathable clothes and take breaks in the shade.",
+      accent: "border-t-accent",
+   },
+];
+
 export default async function Home() {
    const res = await fetch("https://sun-cart-server-c57l.onrender.com/products");
    const products = await res.json();
@@ -46,15 +64,15 @@ export default async function Home() {
          <div className="custom-hero bg-hero mb-10 grid min-h-screen w-full grid-cols-1 items-center justify-center rounded-xl p-5 md:grid-cols-2">
             {/* 1st COLUMN */}
             <div className="border-base-content flex flex-col items-center space-y-3 p-8 md:items-start">
-               <div className="bg-warning flex w-fit items-center justify-center gap-1 rounded-2xl px-4 py-1">
+               <div className="bg-warning flex w-fit items-center justify-center gap-1 rounded-2xl px-4 py-1 shadow-md">
                   <span className="text-warning-content">
                      <FaFire />
                   </span>
                   <span className="text-warning-content font-semibold">Hot deals</span>
                </div>
                <div className="mt-5 flex flex-col">
-                  <p className="text-base-content text-center text-7xl font-semibold md:text-start">Summer Sale</p>
-                  <p className="text-base-content text-center text-7xl font-semibold md:text-start">50% OFF</p>
+                  <p className="text-hero-content2 text-center text-7xl font-semibold md:text-start">Summer Sale</p>
+                  <p className="text-primary text-center text-7xl font-extrabold md:text-start">50% OFF</p>
                </div>
                <div className="mt-5 flex flex-col">
                   <p className="text-hero-content1 text-center text-3xl font-semibold md:text-start">Sunglasses, summer outfits, skincare</p>
@@ -64,7 +82,9 @@ export default async function Home() {
                   href="/products"
                   className="mt-5"
                >
-                  <button className="btn btn-xl bg-warning text-warning-content animate__animated animate__bounce rounded-3xl">Shop now</button>
+                  <button className="btn btn-xl bg-warning text-warning-content shadow-warning/50 animate__animated animate__bounce rounded-3xl border-0 shadow-lg">
+                     Shop now
+                  </button>
                </Link>
             </div>
             {/* 2nd COLUMN */}
@@ -78,7 +98,7 @@ export default async function Home() {
 
          <div className="container mx-auto mb-10 space-y-7">
             <h1 className="text-base-content text-center text-4xl font-bold md:text-start md:text-6xl">Popular Products</h1>
-            <hr />
+            <hr className="border-base-content/15" />
             <div className="">
                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                   {products.slice(0, 3).map((product) => (
@@ -94,39 +114,32 @@ export default async function Home() {
          {/* SUMMER CARE TIPS */}
          <div className="container mx-auto space-y-5">
             <h1 className="text-center text-4xl font-bold md:text-start md:text-6xl">Summer Care Tips</h1>
-            <hr />
+            <hr className="border-base-content/15" />
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-               <div className=" bg-hero hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
-                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
-               </div>
-               <div className="bg-hero hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
-                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
-               </div>
-               <div className="bg-hero hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
-                  <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
-               </div>
+               {tips.map((tip) => (
+                  <div
+                     key={tip.title}
+                     className={`bg-base-200 border-base-content/10 rounded-2xl border border-t-4 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${tip.accent}`}
+                  >
+                     <p className="text-base-content mb-2 text-xl font-bold">{tip.title}</p>
+                     <p className="text-base-content/70 text-base">{tip.text}</p>
+                  </div>
+               ))}
             </div>
          </div>
 
          {/* Top brands */}
          <div className="container mx-auto mt-10 space-y-5">
-            {/* <div
-                     key={product.id}
-                     className="flex items-center justify-center p-8"
-                  ></div> */}
             <h1 className="text-center text-4xl font-bold md:text-start md:text-6xl">Top Brands</h1>
-            <hr />
+            <hr className="border-base-content/15" />
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                {topBrands.map((b) => (
                   <div
                      key={b.brand.toLowerCase()}
-                     className="bg-hero flex flex-col items-center justify-center gap-2 rounded-xl p-8"
+                     className="bg-base-200 border-base-content/10 hover:border-warning flex flex-col items-center justify-center gap-2 rounded-2xl border-2 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
-                     <p className="text-3xl font-semibold">{b.brand}</p>
-                     <p className="text-3xl font-semibold opacity-70">★ {b.avgRating.toFixed(1)}</p>
+                     <p className="text-base-content text-3xl font-semibold">{b.brand}</p>
+                     <p className="text-primary text-2xl font-semibold">★ {b.avgRating.toFixed(1)}</p>
                   </div>
                ))}
             </div>

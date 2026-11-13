@@ -7,10 +7,7 @@ import { headers } from "next/headers";
 import userAvatar from "@/assets/user.png";
 import Image from "next/image";
 import LogOutButton from "./LogOutButton";
-import { IoIosLogOut } from "react-icons/io";
-import { IoLogOutSharp } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
-
 
 const Navbar = async () => {
    const linkPages = (
@@ -26,7 +23,6 @@ const Navbar = async () => {
    });
 
    const user = session?.user;
-   console.log("Navbar image:", user?.image);
 
    const imageSrc = user?.image?.startsWith("http://") || user?.image?.startsWith("https://") ? user.image : userAvatar;
 
@@ -76,7 +72,7 @@ const Navbar = async () => {
 
             {/* Navbar End */}
             <div className="navbar-end gap-3 sm:gap-5">
-               <ThemeSwitch/>
+               <ThemeSwitch />
 
                {user ? (
                   <div className="flex items-center gap-3">
@@ -86,27 +82,28 @@ const Navbar = async () => {
                            role="button"
                            className="m-1"
                         >
-                           <div className="bg-hero-content1/10 flex items-center gap-2 rounded-full py-1 pr-3 pl-1 hover:cursor-pointer">
+                           <div className="bg-base-100/80 text-base-content ring-hero-content1/20 hover:ring-primary flex items-center gap-2 rounded-full py-1 pr-3 pl-1 ring-1 transition-all hover:cursor-pointer">
                               <Image
                                  src={imageSrc}
                                  alt={user.name || "User avatar"}
                                  width={40}
                                  height={40}
-                                 className="size-9 rounded-full object-cover"
+                                 className="ring-primary size-9 rounded-full object-cover ring-2"
                               />
                               <span className="hidden text-sm font-semibold sm:inline">{user.name}</span>
                            </div>
                         </div>
                         <ul
                            tabIndex={-1}
-                           className="dropdown-content menu bg-base-100 rounded-box z-1 w-max shadow-sm"
+                           className="dropdown-content menu bg-base-100 text-base-content border-base-content/10 rounded-box z-1 mt-2 w-max border p-2 shadow-xl"
                         >
                            <li>
-                              <Link href="/profile">
-                                 <button className="btn">
-                                    <RxAvatar className="size-5" />
-                                    Profile
-                                 </button>
+                              <Link
+                                 href="/profile"
+                                 className="hover:bg-primary/10 gap-2 font-semibold"
+                              >
+                                 <RxAvatar className="text-primary size-5" />
+                                 Profile
                               </Link>
                            </li>
                            <li className="flex">
