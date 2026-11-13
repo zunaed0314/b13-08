@@ -30,8 +30,7 @@ const Navbar = async () => {
    return (
       <header className="fixed inset-x-0 top-0 z-50">
          <div className="navbar border-hero-content1/15 bg-hero text-hero-content1 border-b px-3 shadow-md sm:px-6 lg:px-10">
-            {/* Navbar Start: below lg it takes the free space, from lg it keeps the 50% split */}
-            <div className="navbar-start w-auto min-w-0 flex-1 gap-1 sm:gap-2 lg:w-1/2 lg:flex-none">
+            <div className="navbar-start w-auto min-w-0 flex-1 gap-1 sm:gap-2">
                <div className="lg:hidden">
                   <NavDropdown
                      label="Open menu"
@@ -57,7 +56,6 @@ const Navbar = async () => {
                   >
                      <ul className="menu w-full gap-1 p-0 [&_a]:min-h-11 [&_a]:items-center">{linkPages}</ul>
 
-                     {/* Login / Register live here only below sm; from sm up they are buttons in the navbar */}
                      {!user && (
                         <ul className="menu border-hero-content1/15 mt-2 w-full gap-1 border-t p-0 pt-2 sm:hidden [&_a]:min-h-11 [&_a]:items-center">
                            <Navlink href="/login">Login</Navlink>
@@ -65,10 +63,9 @@ const Navbar = async () => {
                         </ul>
                      )}
 
-                     {/* Theme switch lives here only below sm; from sm up it sits in the navbar */}
                      <div
                         data-keep-open
-                        className="border-hero-content1/15 mt-2 flex items-center justify-between border-t px-3 pt-3 sm:hidden"
+                        className="border-hero-content1/15 mt-2 flex items-center justify-between border border-t px-1 sm:hidden"
                      >
                         <span className="text-sm font-semibold">Theme</span>
                         <ThemeSwitch />
@@ -90,7 +87,7 @@ const Navbar = async () => {
             </nav>
 
             {/* Navbar End */}
-            <div className="navbar-end w-auto shrink-0 gap-2 sm:gap-4 lg:w-1/2 lg:gap-5">
+            <div className="navbar-end w-auto shrink-0 gap-2 sm:gap-4 lg:flex-1 lg:gap-5">
                <div className="hidden sm:block">
                   <ThemeSwitch />
                </div>
