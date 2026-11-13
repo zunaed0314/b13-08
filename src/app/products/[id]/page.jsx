@@ -2,6 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+export async function generateMetadata({ params }) {
+   const { id } = await params;
+
+   const res = await fetch(`https://sun-cart-server-c57l.onrender.com/products/${id}`);
+
+   if (!res.ok) {
+      return {
+         title: "Product Not Found",
+         description: "The requested product could not be found.",
+      };
+   }
+
+   const product = await res.json();
+
+   return {
+      title: product.title,
+      description: product.description,
+   };
+}
 const ProductDetailsPage = async ({ params }) => {
    const { id } = await params;
    const res = await fetch(`https://sun-cart-server-c57l.onrender.com/products/${id}`);
