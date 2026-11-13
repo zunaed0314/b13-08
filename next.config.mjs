@@ -36,6 +36,7 @@ const nextConfig = {
       ],
    },
    reactCompiler: true,
+   devIndicators: false,
    turbopack: {
       rules: {
          "*.css": {
