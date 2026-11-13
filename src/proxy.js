@@ -2,10 +2,6 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 
 export async function proxy(request) {
-   const session = await auth.api.getSession({
-      headers: request.headers,
-   });
-
    const pathname = request.nextUrl.pathname;
 
    const protectedRoutes = ["/profile", "/dashboard"];
@@ -13,9 +9,16 @@ export async function proxy(request) {
    const isProtectedRoute =
       protectedRoutes.some((route) => pathname === route || pathname.startsWith(`${route}/`)) || /^\/products\/[^/]+(?:\/.*)?$/.test(pathname);
 
-   if (isProtectedRoute && !session) {
-      const loginUrl = new URL("/login", request.url);
+   if (!isProtectedRoute) {
+      return NextResponse.next();
+   }
 
+   const session = await auth.api.getSession({
+      headers: request.headers,
+   });
+
+   if (!session) {
+      const loginUrl = new URL("/login", request.url);
       loginUrl.searchParams.set("callbackURL", pathname + request.nextUrl.search);
 
       return NextResponse.redirect(loginUrl);

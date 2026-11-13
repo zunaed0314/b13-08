@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,8 +9,10 @@ const Navlink = ({ href, children }) => {
    return (
       <Link
          href={href}
-         className={`btn border [border-color:var(--color-border-custom)] ${
-            isActive ? "bg-selected text-selected-content" : "bg-base-200 text-base-content"
+         className={`btn border border-transparent transition-all duration-200 ${
+            isActive
+               ? "bg-primary text-primary-content shadow-sm"
+               : "text-hero-content1 hover:border-hero-content1/15 hover:bg-hero-content1/10 bg-base-100"
          }`}
       >
          {children}

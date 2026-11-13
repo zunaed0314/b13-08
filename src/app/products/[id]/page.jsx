@@ -7,7 +7,7 @@ const ProductDetailsPage = async ({ params }) => {
    const product = await res.json();
    return (
       <div className="container mx-auto mt-25 flex flex-col">
-         <div className="grid grid-cols-[400px_1fr] gap-8 rounded-4xl border">
+         <div className="grid grid-cols-1 md:grid-cols-[400px_1fr]  gap-8 rounded-4xl border">
             {/* Image column */}
             <div className="flex w-full items-center justify-center p-5">
                <Image
@@ -20,7 +20,7 @@ const ProductDetailsPage = async ({ params }) => {
             </div>
 
             {/* Details column */}
-            <div className="flex flex-col justify-between space-y-6 p-5">
+            <div className="flex flex-col space-y-6 p-5">
                <p className="text-base-content text-4xl font-bold">{product.name}</p>
 
                <div>

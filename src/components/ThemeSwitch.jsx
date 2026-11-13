@@ -6,7 +6,6 @@ import { CiLight } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
 
-
 const emptySubscribe = () => () => {};
 
 export function ThemeSwitch() {
@@ -19,19 +18,13 @@ export function ThemeSwitch() {
    );
 
    if (!mounted) {
-      return (
-         <input
-            type="checkbox"
-            className="toggle"
-            disabled
-         />
-      );
+      return <p>Switch</p>;
    }
 
    return (
       <div className="mr-4 flex items-center gap-2">
          <button
-            className="btn"
+            className="btn border-bg-100 bg-base-300 rounded-full"
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
          >
             {resolvedTheme === "dark" ? <FaMoon className="size-5" /> : <MdLightMode className="size-6" />}

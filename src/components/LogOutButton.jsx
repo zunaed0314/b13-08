@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { usePathname, useRouter } from "next/navigation";
+import { IoLogOutSharp } from "react-icons/io5";
 
 const LogOutButton = () => {
    const router = useRouter();
@@ -30,9 +31,10 @@ const LogOutButton = () => {
    return (
       <button
          onClick={handleLogout}
-         className="btn bg-red-700 text-white"
+         className="btn"
       >
-         LOGOUT
+         <IoLogOutSharp className="size-5" />
+         Logout
       </button>
    );
 };

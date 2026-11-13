@@ -5,8 +5,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
+import { useSearchParams } from "next/navigation";
+import { SocialIcon } from "react-social-icons";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
+   const searchParams = useSearchParams();
+   const callbackURL = searchParams.get("callbackURL") || "/";
    const {
       register,
       handleSubmit,
@@ -17,26 +22,33 @@ const LoginPage = () => {
    const [eyeOpen, setEyeOpen] = useState(false);
 
    const handleLoginFunc = async (userData) => {
-      console.log("These are data: ", userData);
       const { data, error } = await authClient.signIn.email({
          email: userData.email,
          password: userData.password,
          rememberMe: true,
-         callbackURL: "/",
+         callbackURL, // ← now uses the URL param
       });
 
-      console.log("Sign in response: ", { data, error });
       if (error) {
-         alert("Signed in ERROR ALERT!!!!!!!!!", error.message);
+         alert(error.message);
       }
-      if (data) {
-         alert("Sign in successful:", data);
+   };
+
+   const handleGoogleSignin = async () => {
+      const { data, error } = await authClient.signIn.social({
+         provider: "google",
+         callbackURL,
+      });
+
+      if (error) {
+         console.error("Google sign-in error:", error);
+         alert(error.message);
       }
    };
 
    return (
       <div className="bg-base-100 container mx-auto mt-20 flex min-h-[80vh] items-center justify-center">
-         <div className="bg-base-300 space-y-3 rounded-lg p-10">
+         <div className="bg-base-300 items-center space-y-3 rounded-lg border p-10">
             <h1 className="text-base-content border-b border-gray-300 pb-6 text-4xl font-bold">Login your account</h1>
             <form
                className="space-y-1 rounded-lg p-6"
@@ -71,7 +83,7 @@ const LoginPage = () => {
                   </div>
                   {errors.password && <p className="text-red-500">{errors.password.message}</p>}
                </fieldset>{" "}
-               <button className="btn text-base-content bg-base-100 w-full">Login</button>
+               <button className="btn text-base-content bg-base-100 w-full border">Login</button>
                <p>
                   Don&apos;t have an account?{" "}
                   <Link
@@ -82,6 +94,21 @@ const LoginPage = () => {
                   </Link>
                </p>
             </form>
+            <div className="my-5 flex items-center gap-4">
+               <div className="bg-base-content/20 h-px flex-1"></div>
+               <span className="text-base-content/50 text-sm">OR</span>
+               <div className="bg-base-content/20 h-px flex-1"></div>
+            </div>
+            <div className="flex w-full justify-center">
+               <button
+                  className="btn"
+                  onClick={handleGoogleSignin}
+               >
+                  {" "}
+                  <FcGoogle className="size-5" />
+                  Login with Google
+               </button>
+            </div>
          </div>
       </div>
    );

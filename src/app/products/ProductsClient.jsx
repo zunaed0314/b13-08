@@ -63,7 +63,7 @@ const ProductsClient = ({ products }) => {
                   handleSearch();
                }}
             >
-               <label className="input bg-base-100 focus-within:border-primary h-12 w-full border focus-within:outline-none">
+               <label className="input border bg-base-100 focus-within:border-primary h-12 w-full focus-within:outline-none">
                   <svg
                      className="h-5 w-5 opacity-50"
                      xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ const ProductsClient = ({ products }) => {
             </form>
 
             {/* Category Filter */}
-            <div className="flex w-full flex-col gap-2 sm:w-auto">
+            <div className="flex flex-col gap-2 w-full">
                <select
                   className="select border-base-300 bg-base-100 focus:border-primary h-12 w-full border focus:outline-none sm:w-52"
                   value={selectedCategory}

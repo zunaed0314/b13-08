@@ -96,15 +96,15 @@ export default async function Home() {
             <h1 className="text-center text-4xl font-bold md:text-start md:text-6xl">Summer Care Tips</h1>
             <hr />
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-               <div className="bg-hero hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+               <div className=" bg-hero hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
                   <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
                </div>
-               <div className="bg-hero hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+               <div className="bg-hero hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
                   <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
                </div>
-               <div className="bg-hero hover:border-primary rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+               <div className="bg-hero hover:border-primary rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <p className="text-base-content mb-2 text-xl font-bold">Stay Hydrated</p>
                   <p className="text-base-content text-md">Drink water through the day. Specially outdoors</p>
                </div>
@@ -123,7 +123,7 @@ export default async function Home() {
                {topBrands.map((b) => (
                   <div
                      key={b.brand.toLowerCase()}
-                     className="bg-hero border-warning flex flex-col items-center justify-center gap-2 rounded-xl border-2 p-8"
+                     className="bg-hero flex flex-col items-center justify-center gap-2 rounded-xl p-8"
                   >
                      <p className="text-3xl font-semibold">{b.brand}</p>
                      <p className="text-3xl font-semibold opacity-70">★ {b.avgRating.toFixed(1)}</p>
