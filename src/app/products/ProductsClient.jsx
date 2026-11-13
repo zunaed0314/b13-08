@@ -63,7 +63,7 @@ const ProductsClient = ({ products }) => {
                   handleSearch();
                }}
             >
-               <label className="input border-base-300 bg-base-100 focus-within:border-primary h-12 w-full border focus-within:outline-none">
+               <label className="input bg-base-100 focus-within:border-primary h-12 w-full border focus-within:outline-none">
                   <svg
                      className="h-5 w-5 opacity-50"
                      xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ const ProductsClient = ({ products }) => {
          </div>
 
          <div className="container mx-auto">
-            <div className="grid grid-cols-1 gap-4 p-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 p-5 md:grid-cols-2 lg:grid-cols-3">
                {filteredProducts.map((product) => (
                   <div key={product.id}>
                      {/* <Link

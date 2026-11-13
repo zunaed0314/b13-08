@@ -4,7 +4,7 @@ import React from "react";
 
 const ProductCard = ({ product }) => {
    return (
-      <div className="card animate__animated animate__bounce border-base-300 bg-base-100 hover:border-primary flex h-full flex-col overflow-hidden rounded-xl border p-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className="card animate__animated animate__bounce border bg-base-300 hover:border-primary flex h-full flex-col overflow-hidden rounded-xl p-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
          {/* Product Image */}
          <div className="bg-base-200 flex h-48 w-full items-center justify-center rounded-lg p-3">
             <Image
@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
          </div>
 
          {/* Stock and Rating */}
-         <div className="border-base-300 mt-auto flex items-center justify-between border-t pt-4">
+         <div className=" mt-auto flex items-center justify-between border-t pt-4">
             <div className="flex flex-col">
                <span className={`font-semibold ${product.stock > 0 ? "text-success" : "text-error"}`}>
                   {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
             </div>
 
             <Link href={`/products/${product.id}`}>
-               <button className="btn flex flex-col items-end">Show details</button>
+               <button className="btn flex flex-col items-end border border-black">Show details</button>
             </Link>
          </div>
       </div>
